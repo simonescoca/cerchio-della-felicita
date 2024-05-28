@@ -25,5 +25,5 @@ function updateCake() {
         );`
     );
 
-    happiness.innerText = `felicità ${red + orange + yellow + green + indigo + blue}%`
+    happiness.innerText = `felicità ${Math.round(red + orange + yellow + green + indigo + blue)}%`
 }
