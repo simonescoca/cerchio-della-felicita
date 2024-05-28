@@ -1,0 +1,74 @@
+body {
+    font-family: "Kalam", cursive;
+    font-weight: 300;
+    font-style: normal;
+}
+
+header > h1, #happiness {
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.cake {
+    width: 360px;
+    height: 360px;
+    min-width: 360px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.white-cover {
+    width: 290px;
+    height: 290px;
+    min-width: 290px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+ul > li {
+    /* margin-top: 10px; */
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.input {
+    border-radius: 8px;
+    border-color: black;
+    width: 70px;
+}
+
+.my-text-red {
+    color: red;
+}
+
+.my-text-orange {
+    color: orange;
+}
+
+.my-text-yellow {
+    color: yellow;
+}
+
+.my-text-green {
+    color: green;
+}
+
+.my-text-indigo {
+    color: indigo;
+}
+
+.my-text-blue {
+    color: blue;
+}
+
+.ok-button {
+    width: 100px;
+}
