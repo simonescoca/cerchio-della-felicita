@@ -6,24 +6,27 @@ document.addEventListener("DOMContentLoaded", updateCake);
 okButton.addEventListener("click", updateCake);
 
 function updateCake() {
-    const red = parseFloat(document.getElementById("red").value) * (5 / 3);
-    const orange = parseFloat(document.getElementById("orange").value) * (5 / 3);
-    const yellow = parseFloat(document.getElementById("yellow").value) * (5 / 3);
-    const green = parseFloat(document.getElementById("green").value) * (5 / 3);
-    const indigo = parseFloat(document.getElementById("indigo").value) * (5 / 3);
-    const blue = parseFloat(document.getElementById("blue").value) * (5 / 3);
+    const red = document.getElementById("red").value;
+    const orange = document.getElementById("orange").value;
+    const yellow = document.getElementById("yellow").value;
+    const green = document.getElementById("green").value;
+    const indigo = document.getElementById("indigo").value;
+    const blue = document.getElementById("blue").value;
+
+    const indexesSTR = [red, orange, yellow, green, indigo, blue];
+    const percentages = indexesSTR.map((e) => parseInt(e) * (5 / 3));
 
     cake.setAttribute("style",
         `background-image: conic-gradient(
-            red ${red}%,
-            orange ${red}%, orange ${red + orange}%,
-            yellow ${red + orange}%, yellow ${red + orange + yellow}%,
-            green ${red + orange + yellow}%, green ${red + orange + yellow + green}%,
-            indigo ${red + orange + yellow + green}%, indigo ${red + orange + yellow + green + indigo}%,
-            blue ${red + orange + yellow + green + indigo}%, blue ${red + orange + yellow + green + indigo + blue}%,
-            black ${red + orange + yellow + green + indigo + blue}%
+            red ${percentages[0]}%,
+            orange ${percentages[0]}%, orange ${percentages[0] + percentages[1]}%,
+            yellow ${percentages[0] + percentages[1]}%, yellow ${percentages[0] + percentages[1] + percentages[2]}%,
+            green ${percentages[0] + percentages[1] + percentages[2]}%, green ${percentages[0] + percentages[1] + percentages[2] + percentages[3]}%,
+            indigo ${percentages[0] + percentages[1] + percentages[2] + percentages[3]}%, indigo ${percentages[0] + percentages[1] + percentages[2] + percentages[3] + percentages[4]}%,
+            blue ${percentages[0] + percentages[1] + percentages[2] + percentages[3] + percentages[4]}%, blue ${percentages[0] + percentages[1] + percentages[2] + percentages[3] + percentages[4] + percentages[5]}%,
+            black ${percentages[0] + percentages[1] + percentages[2] + percentages[3] + percentages[4] + percentages[5]}%
         );`
     );
 
-    happiness.innerText = `felicità ${Math.round(red + orange + yellow + green + indigo + blue)}%`
+    happiness.innerText = `felicità ${Math.round(percentages[0] + percentages[1] + percentages[2] + percentages[3] + percentages[4] + percentages[5])}%`
 }

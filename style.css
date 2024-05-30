@@ -32,7 +32,7 @@ header > h1, #happiness {
 
 ul > li {
     /* margin-top: 10px; */
-    margin: 10px;
+    margin: 5px 10px 5px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
