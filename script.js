@@ -1,20 +1,23 @@
 const cake = document.getElementById("cake");
-const okButton = document.getElementById("ok-button");
 const happiness = document.getElementById("happiness");
 
+const redInput = document.getElementById("red");
+const orangeInput = document.getElementById("orange");
+const yellowInput = document.getElementById("yellow");
+const greenInput = document.getElementById("green");
+const indigoInput = document.getElementById("indigo");
+const blueInput = document.getElementById("blue");
+
+const inputs = [redInput, orangeInput, yellowInput, greenInput, indigoInput, blueInput];
+
+// ! EVENT LISTENERS > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > >
 document.addEventListener("DOMContentLoaded", updateCake);
-okButton.addEventListener("click", updateCake);
+inputs.forEach(input => input.addEventListener("input", updateCake));
+
 
 function updateCake() {
-    const red = document.getElementById("red").value;
-    const orange = document.getElementById("orange").value;
-    const yellow = document.getElementById("yellow").value;
-    const green = document.getElementById("green").value;
-    const indigo = document.getElementById("indigo").value;
-    const blue = document.getElementById("blue").value;
-
-    const indexesSTR = [red, orange, yellow, green, indigo, blue];
-    const percentages = indexesSTR.map((e) => parseInt(e) * (5 / 3));
+    const percentages = [];
+    inputs.forEach(input => percentages.push(parseInt(input.value) * (5 / 3)));
 
     cake.setAttribute("style",
         `background-image: conic-gradient(
@@ -27,6 +30,5 @@ function updateCake() {
             black ${percentages[0] + percentages[1] + percentages[2] + percentages[3] + percentages[4] + percentages[5]}%
         );`
     );
-
     happiness.innerText = `felicità ${Math.round(percentages[0] + percentages[1] + percentages[2] + percentages[3] + percentages[4] + percentages[5])}%`
 }
