@@ -38,12 +38,16 @@ function updateCake() {
             #28B8FF ${p[0] + p[1] + p[2] + p[3] + p[4] + p[5]}%
         );`
     );
+    happiness.classList.remove("fs-4");
+    happiness.classList.add("fs-2");
     happiness.innerText = `felicità ${Math.round(p[0] + p[1] + p[2] + p[3] + p[4] + p[5])}%`;
 }
 
 function showInvalid() {
-    cake.setAttribute("style", "background-color: red;");
-    happiness.innerText = "valori non validi";
+    cake.setAttribute("style", "background-color: #28B8FF;");
+    happiness.classList.remove("fs-2");
+    happiness.classList.add("fs-4");
+    happiness.innerText = "inserire valori da 0 a 10";
 }
 
 function checkInputValues() {
