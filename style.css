@@ -2,6 +2,8 @@ body {
     font-family: "Kalam", cursive;
     font-weight: 300;
     font-style: normal;
+    background-color: #10B0FF;
+    color: white;
 }
 
 header > h1, #happiness {
@@ -23,11 +25,11 @@ header > h1, #happiness {
     height: 290px;
     min-width: 290px;
     border-radius: 50%;
-    background-color: white;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: #10B0FF;
 }
 
 ul > li {
@@ -43,6 +45,7 @@ ul > li {
     border-radius: 8px;
     border-color: black;
     width: 70px;
+    background-color: #b8e7ff;
 }
 
 .my-text-red {
@@ -69,6 +72,19 @@ ul > li {
     color: blue;
 }
 
-.ok-button {
-    width: 120px;
-}
+.inputtino {
+    font-family: "Kalam", cursive;
+    /* max-width: 190px; */
+    width: 68px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1.5px solid #000;
+    border-radius: 0.5rem;
+    box-shadow: 2.5px 3px 0 #000;
+    outline: none;
+    transition: ease 0.25s;
+  }
+  
+  .inputtino:focus {
+    box-shadow: 5.5px 7px 0 black;
+  }

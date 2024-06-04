@@ -11,24 +11,51 @@ const blueInput = document.getElementById("blue");
 const inputs = [redInput, orangeInput, yellowInput, greenInput, indigoInput, blueInput];
 
 // ! EVENT LISTENERS > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > >
-document.addEventListener("DOMContentLoaded", updateCake);
-inputs.forEach(input => input.addEventListener("input", updateCake));
+document.addEventListener("DOMContentLoaded", () => {
+    if(checkInputValues()) updateCake();
+    else showInvalid();
+});
+
+inputs.forEach(input => input.addEventListener("input", () => {
+    if(checkInputValues()) updateCake();
+    else showInvalid();
+}));
 
 
+// ! FUNCTIONS > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > >
 function updateCake() {
-    const percentages = [];
-    inputs.forEach(input => percentages.push(parseInt(input.value) * (5 / 3)));
+    const p = []; // percentages
+    inputs.forEach(input => p.push(parseInt(input.value) * (5 / 3)));
 
     cake.setAttribute("style",
         `background-image: conic-gradient(
-            red ${percentages[0]}%,
-            orange ${percentages[0]}%, orange ${percentages[0] + percentages[1]}%,
-            yellow ${percentages[0] + percentages[1]}%, yellow ${percentages[0] + percentages[1] + percentages[2]}%,
-            green ${percentages[0] + percentages[1] + percentages[2]}%, green ${percentages[0] + percentages[1] + percentages[2] + percentages[3]}%,
-            indigo ${percentages[0] + percentages[1] + percentages[2] + percentages[3]}%, indigo ${percentages[0] + percentages[1] + percentages[2] + percentages[3] + percentages[4]}%,
-            blue ${percentages[0] + percentages[1] + percentages[2] + percentages[3] + percentages[4]}%, blue ${percentages[0] + percentages[1] + percentages[2] + percentages[3] + percentages[4] + percentages[5]}%,
-            black ${percentages[0] + percentages[1] + percentages[2] + percentages[3] + percentages[4] + percentages[5]}%
+            red ${p[0]}%,
+            orange ${p[0]}%, orange ${p[0] + p[1]}%,
+            yellow ${p[0] + p[1]}%, yellow ${p[0] + p[1] + p[2]}%,
+            green ${p[0] + p[1] + p[2]}%, green ${p[0] + p[1] + p[2] + p[3]}%,
+            indigo ${p[0] + p[1] + p[2] + p[3]}%, indigo ${p[0] + p[1] + p[2] + p[3] + p[4]}%,
+            blue ${p[0] + p[1] + p[2] + p[3] + p[4]}%, blue ${p[0] + p[1] + p[2] + p[3] + p[4] + p[5]}%,
+            #28B8FF ${p[0] + p[1] + p[2] + p[3] + p[4] + p[5]}%
         );`
     );
-    happiness.innerText = `felicità ${Math.round(percentages[0] + percentages[1] + percentages[2] + percentages[3] + percentages[4] + percentages[5])}%`
+    happiness.innerText = `felicità ${Math.round(p[0] + p[1] + p[2] + p[3] + p[4] + p[5])}%`;
+}
+
+function showInvalid() {
+    cake.setAttribute("style", "background-color: red;");
+    happiness.innerText = "valori non validi";
+}
+
+function checkInputValues() {
+    let valid = false;
+    let validValues = 0;
+    const availableValues = [];
+    for(let i = 0; i < 11; i++) availableValues.push(i);
+
+    inputs.forEach((input) => {
+        if(availableValues.includes(parseInt(input.value))) validValues++;
+    });
+
+    if (validValues === inputs.length) valid = true;
+    return valid;
 }
