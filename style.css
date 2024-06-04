@@ -13,17 +13,17 @@ header > h1, #happiness {
 }
 
 .cake {
-    width: 360px;
-    height: 360px;
-    min-width: 360px;
+    width: 340px;
+    height: 340px;
+    min-width: 340px;
     border-radius: 50%;
     position: relative;
 }
 
 .white-cover {
-    width: 290px;
-    height: 290px;
-    min-width: 290px;
+    width: 280px;
+    height: 280px;
+    min-width: 280px;
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -31,14 +31,6 @@ header > h1, #happiness {
     transform: translate(-50%, -50%);
     background-color: #10B0FF;
 }
-
-/* ul > li {
-    margin: 5px 10px 5px 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-} */
 
 .input {
     font-family: "Kalam", cursive;

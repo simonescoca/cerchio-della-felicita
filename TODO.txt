@@ -1,0 +1,4 @@
+* Aggiungere SVG con onde, qualche nuvoletta e il sole
+* Smussare gli angoli quando il cercio è incompleto
+* Creare una pagina che spieghi lo scopo del sito e come utilizzarlo
+* Implementare la responsiveness
